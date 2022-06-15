@@ -17,5 +17,6 @@ int main()
     b = BubbleSort(b);
     a.show();
     b.show();
+	system("pause");
     return 0;	
 }
