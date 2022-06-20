@@ -2,7 +2,21 @@
 using namespace std;
 struct stu{
 	string name;
+	int Chinese;
+	int Math;
+	int English;
+	int Physics;
+	int Chemistry;
+	
 	int score;
+
+	bool operator < (const stu &s) const { return score < s.score; }
+	bool operator > (const stu &s) const { return score >  s.score; }
+	bool operator <= (const stu &s) const { return score <= s.score; }
+	bool operator >= (const stu &s) const { return score >= s.score; }
+	bool operator == (const stu &s) const { return score == s.score; }
+	bool operator != (const stu &s) const { return score != s.score; }
+
 };
 class num{
 	private:
@@ -17,7 +31,13 @@ class num{
 			if(flag == "struct")return (int)student.size();
 			return 0;
 		}
-		
+
+		//如果是数字，a[i]返回第i项值；如果是struct则a[i]返回第i个学生的成绩
+		int& operator[](int i)
+		{
+			if(flag == "num")return number[i];
+			if(flag == "struct")return student[i].score;//我更想在这种情况下返回一个struct, 不知道行不行
+		}
 
 		void push(int n)
 		{
@@ -29,6 +49,10 @@ class num{
 			student.push_back(n);
 			flag = "struct";
 		}
+
+		
+
+
 		void show()
 		{
 			if(flag == "num")
