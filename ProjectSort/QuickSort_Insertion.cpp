@@ -21,8 +21,8 @@ void QuickSort_Insertion(T begin, T end)
             *(begin + j) = *(begin + i);
         }
         *(begin + i) = tmp;
-        QuickSort(begin, begin + i - 1);
-        QuickSort(begin + i + 1, end);
+        QuickSort_Insertion(begin, begin + i - 1);
+        QuickSort_Insertion(begin + i + 1, end);
     }
 }
 
